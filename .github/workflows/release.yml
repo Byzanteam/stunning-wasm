@@ -1,0 +1,38 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  cache:
+    name: Update cache
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/cache@v2
+        id: load-cache
+        with:
+          path: "node_modules"
+          key: ${{ hashFiles('package-lock.json') }}
+          restore-keys: ${{ hashFiles('package-lock.json') }}
+      - name: update-dependencies
+        if: steps.load-cache.outputs.cache-hit != 'true'
+        run: npm install
+  build:
+    name: Build WebAssembly
+    runs-on: ubuntu-latest
+    needs: cache
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/cache@v2
+        id: load-cache
+        with:
+          path: "node_modules"
+          key: ${{ hashFiles('package-lock.json') }}
+          restore-keys: ${{ hashFiles('package-lock.json') }}
+      - name: update-dependencies
+        if: steps.load-cache.outputs.cache-hit != 'true'
+        run: npm install
+      - run: make
