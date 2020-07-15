@@ -1,0 +1,11 @@
+{
+  "name": "stunning-wasm",
+  "version": "0.1.0",
+  "description": "",
+  "private": true,
+  "repository": "https://github.com/Byzanteam/stunning-wasm.git",
+  "license": "MIT",
+  "dependencies": {
+    "assemblyscript": "^0.13.7"
+  }
+}
