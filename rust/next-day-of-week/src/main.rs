@@ -1,7 +1,7 @@
 #![no_main]
 
 use chrono::{Duration, NaiveDateTime};
-use eetf::{Binary, Term};
+use eetf::{Binary, List, Term};
 use std::io::Cursor;
 use std::str;
 
@@ -36,8 +36,10 @@ fn next_day_of_week(date_time_value: &Binary) {
     let next_day = ndt + Duration::days(7);
     let next_day = next_day.format(DATE_TIME_FORMAT).to_string();
     let next_day = Binary::from(next_day.into_bytes());
+    let next_day = Term::from(next_day);
 
-    let term = Term::from(next_day);
+    let outputs = List::from(vec![next_day]);
+    let term = Term::from(outputs);
 
     let mut buf = Vec::new();
 
