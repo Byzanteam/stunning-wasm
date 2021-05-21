@@ -2,5 +2,6 @@
 
 members = [
     "next-day-of-week",
-    "integer-sum"
+    "integer-sum",
+    "departments-iterator"
 ]
