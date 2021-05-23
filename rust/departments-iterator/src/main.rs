@@ -145,6 +145,23 @@ pub fn run(params: &str) {
                     hostcall_set_outputs(buf.as_ptr(), buf.len());
                 }
             }
+            Some(Term::Atom(Atom { name })) => {
+                if name == "nil" {
+                    let outputs = List::from(vec![
+                        Term::from(Atom::from("nil")),
+                        Term::from(Atom::from("nil")),
+                    ]);
+                    let term = Term::from(outputs);
+
+                    let mut buf = Vec::new();
+
+                    term.encode(&mut buf).unwrap();
+
+                    unsafe {
+                        hostcall_set_outputs(buf.as_ptr(), buf.len());
+                    }
+                }
+            }
             _ => (),
         },
         _ => (),
