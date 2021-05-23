@@ -1,6 +1,6 @@
 #![no_main]
 
-use eetf::{Binary, List, Map, Term};
+use eetf::{Atom, Binary, List, Map, Term};
 use std::io::Cursor;
 use std::str;
 
@@ -90,7 +90,7 @@ impl From<UUID> for Term {
 impl From<UserBoundary> for Term {
     fn from(user_boundary: UserBoundary) -> Self {
         if user_boundary.is_empty() {
-            Term::from(List::nil())
+            Term::from(Atom::from("nil"))
         } else {
             let entries = vec![
                 (
