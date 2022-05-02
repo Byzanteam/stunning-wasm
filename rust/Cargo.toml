@@ -1,7 +1,3 @@
 [workspace]
 
-members = [
-    "next-day-of-week",
-    "integer-sum",
-    "departments-iterator"
-]
+members = []
