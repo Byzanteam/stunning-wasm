@@ -1,9 +1,13 @@
 [package]
 name = "next-day-of-week"
 version = "0.1.0"
-authors = ["Phil Chen <06fahchen@gmail.com>"]
+authors = ["ByzanTeam <dev@byzan.team>"]
 edition = "2018"
 
 [dependencies]
-eetf = "0.5.0"
-chrono = "0.4.19"
+jet_programmable_rust_binding = { git = "https://github.com/Byzanteam/jet-programmable-rust-binding" }
+
+[dependencies.time]
+version = "0.3.9"
+default-features = false
+features = ["parsing", "macros", "formatting"]

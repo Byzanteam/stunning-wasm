@@ -10,6 +10,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "integer-sum"
+version = "0.1.0"
+dependencies = [
+ "jet_programmable_rust_binding",
+]
+
+[[package]]
 name = "itoa"
 version = "1.0.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -18,7 +25,7 @@ checksum = "1aab8fc367588b89dcee83ab0fd66b72b50b72fa1904d7095045ace2b0c81c35"
 [[package]]
 name = "jet_programmable_rust_binding"
 version = "0.1.0"
-source = "git+https://github.com/Byzanteam/jet-programmable-rust-binding#c27f19fe731d8bcdfd53e72b44d553400ea7ca8e"
+source = "git+https://github.com/Byzanteam/jet-programmable-rust-binding#13db763e9621e618af9b237a2a6ef66e8a9bb6b1"
 dependencies = [
  "serde_json",
  "time",
@@ -30,6 +37,14 @@ name = "libc"
 version = "0.2.125"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "5916d2ae698f6de9bfb891ad7a8d65c09d232dc58cc4ac433c7da3b2fd84bc2b"
+
+[[package]]
+name = "next-day-of-week"
+version = "0.1.0"
+dependencies = [
+ "jet_programmable_rust_binding",
+ "time",
+]
 
 [[package]]
 name = "num_threads"
@@ -54,9 +69,9 @@ checksum = "61ea8d54c77f8315140a05f4c7237403bf38b72704d031543aa1d16abbf517d1"
 
 [[package]]
 name = "serde_json"
-version = "1.0.80"
+version = "1.0.81"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f972498cf015f7c0746cac89ebe1d6ef10c293b94175a243a2d9442c163d9944"
+checksum = "9b7ce2b32a1aed03c558dc61a5cd328f15aff2dbc17daad8fb8af04d2100e15c"
 dependencies = [
  "itoa",
  "ryu",
