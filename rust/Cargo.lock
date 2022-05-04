@@ -10,6 +10,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "get-naive-datetime-period-text"
+version = "0.1.0"
+dependencies = [
+ "jet_programmable_rust_binding",
+]
+
+[[package]]
 name = "integer-sum"
 version = "0.1.0"
 dependencies = [
