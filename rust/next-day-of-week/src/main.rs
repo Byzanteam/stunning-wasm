@@ -1,4 +1,4 @@
-#![no_main]
+#![cfg_attr(not(test), no_main)]
 
 use core::convert::TryFrom;
 use time::{Date, Duration, Month, PrimitiveDateTime, Time};
