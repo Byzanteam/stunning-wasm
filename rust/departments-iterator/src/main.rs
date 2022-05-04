@@ -68,20 +68,20 @@ fn iterate_over_departments(
 
     (
         current
-            .and_then(|ub| {
+            .map(|ub| {
                 if ub.is_empty() {
-                    Some(UserBoundaryFieldValue::Nil)
+                    UserBoundaryFieldValue::Nil
                 } else {
-                    Some(UserBoundaryFieldValue::Value(ub))
+                    UserBoundaryFieldValue::Value(ub)
                 }
             })
             .unwrap_or(UserBoundaryFieldValue::Nil),
         remaining
-            .and_then(|ub| {
+            .map(|ub| {
                 if ub.is_empty() {
-                    Some(UserBoundaryFieldValue::Nil)
+                    UserBoundaryFieldValue::Nil
                 } else {
-                    Some(UserBoundaryFieldValue::Value(ub))
+                    UserBoundaryFieldValue::Value(ub)
                 }
             })
             .unwrap_or(UserBoundaryFieldValue::Nil),
