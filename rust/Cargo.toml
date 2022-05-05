@@ -4,5 +4,6 @@ members = [
     "next-day-of-week",
     "integer-sum",
     "departments-iterator",
-    "get-naive-datetime-period-text"
+    "get-naive-datetime-period-text",
+    "naive-datetime-add"
 ]
