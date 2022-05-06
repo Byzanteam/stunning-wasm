@@ -32,7 +32,7 @@ checksum = "1aab8fc367588b89dcee83ab0fd66b72b50b72fa1904d7095045ace2b0c81c35"
 [[package]]
 name = "jet_programmable_rust_binding"
 version = "0.1.0"
-source = "git+https://github.com/Byzanteam/jet-programmable-rust-binding#13db763e9621e618af9b237a2a6ef66e8a9bb6b1"
+source = "git+https://github.com/Byzanteam/jet-programmable-rust-binding#d5ed6e73bd08eafd3d770fd74d97cbaf14dedb68"
 dependencies = [
  "serde_json",
  "time",
@@ -63,9 +63,9 @@ dependencies = [
 
 [[package]]
 name = "num_threads"
-version = "0.1.5"
+version = "0.1.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "aba1801fb138d8e85e11d0fc70baf4fe1cdfffda7c6cd34a854905df588e5ed0"
+checksum = "2819ce041d2ee131036f4fc9d6ae7ae125a3a40e97ba64d04fe799ad9dabbb44"
 dependencies = [
  "libc",
 ]
