@@ -272,208 +272,200 @@ mod tests {
     #[test]
     fn test_add_seconds() {
         {
-            let primitive_datetime = datetime!(2020-01-01 00:00:00);
-            let amount_to_add = Number::Integer(1);
-            let unit = Unit::Seconds;
-
-            let pdt = add(&primitive_datetime, &amount_to_add, &unit);
-
-            assert_eq!(pdt, datetime!(2020-01-01 00:00:01));
+            assert_datetime_eq(
+                datetime!(2020-01-01 00:00:00),
+                Number::Integer(1),
+                Unit::Seconds,
+                datetime!(2020-01-01 00:00:01),
+            );
         }
 
         // float amount
         {
-            let primitive_datetime = datetime!(2020-01-01 00:00:00);
-            let amount_to_add = Number::Float(1.2);
-            let unit = Unit::Seconds;
-
-            let pdt = add(&primitive_datetime, &amount_to_add, &unit);
-
-            assert_eq!(pdt, datetime!(2020-01-01 00:00:01.2));
+            assert_datetime_eq(
+                datetime!(2020-01-01 00:00:00),
+                Number::Float(1.2),
+                Unit::Seconds,
+                datetime!(2020-01-01 00:00:01.2),
+            );
         }
 
         // cross a day
         {
-            let primitive_datetime = datetime!(2020-01-01 23:59:59);
-            let amount_to_add = Number::Integer(1);
-            let unit = Unit::Seconds;
-
-            let pdt = add(&primitive_datetime, &amount_to_add, &unit);
-
-            assert_eq!(pdt, datetime!(2020-01-02 00:00:00));
+            assert_datetime_eq(
+                datetime!(2020-01-01 23:59:59),
+                Number::Integer(1),
+                Unit::Seconds,
+                datetime!(2020-01-02 00:00:00),
+            );
         }
 
         // cross a month
         {
-            let primitive_datetime = datetime!(2020-02-29 23:59:59);
-            let amount_to_add = Number::Integer(1);
-            let unit = Unit::Seconds;
-
-            let pdt = add(&primitive_datetime, &amount_to_add, &unit);
-
-            assert_eq!(pdt, datetime!(2020-03-01 00:00:00));
+            assert_datetime_eq(
+                datetime!(2020-02-29 23:59:59),
+                Number::Integer(1),
+                Unit::Seconds,
+                datetime!(2020-03-01 00:00:00),
+            );
         }
     }
 
     #[test]
     fn test_add_minutes() {
         {
-            let primitive_datetime = datetime!(2020-01-01 00:00:00);
-            let amount_to_add = Number::Integer(1);
-            let unit = Unit::Minutes;
-
-            let pdt = add(&primitive_datetime, &amount_to_add, &unit);
-
-            assert_eq!(pdt, datetime!(2020-01-01 00:01:00));
+            assert_datetime_eq(
+                datetime!(2020-01-01 00:00:00),
+                Number::Integer(1),
+                Unit::Minutes,
+                datetime!(2020-01-01 00:01:00),
+            );
         }
 
         // float amount
         {
-            let primitive_datetime = datetime!(2020-01-01 00:00:00);
-            let amount_to_add = Number::Float(1.52);
-            let unit = Unit::Minutes;
-
-            let pdt = add(&primitive_datetime, &amount_to_add, &unit);
-
-            assert_eq!(pdt, datetime!(2020-01-01 00:01:31.2));
+            assert_datetime_eq(
+                datetime!(2020-01-01 00:00:00),
+                Number::Float(1.52),
+                Unit::Minutes,
+                datetime!(2020-01-01 00:01:31.2),
+            );
         }
     }
 
     #[test]
     fn test_add_hours() {
         {
-            let primitive_datetime = datetime!(2020-01-01 00:00:00);
-            let amount_to_add = Number::Integer(1);
-            let unit = Unit::Hours;
-
-            let pdt = add(&primitive_datetime, &amount_to_add, &unit);
-
-            assert_eq!(pdt, datetime!(2020-01-01 01:00:00));
+            assert_datetime_eq(
+                datetime!(2020-01-01 00:00:00),
+                Number::Integer(1),
+                Unit::Hours,
+                datetime!(2020-01-01 01:00:00),
+            );
         }
 
         // float amount
         {
-            let primitive_datetime = datetime!(2020-01-01 00:00:00);
-            let amount_to_add = Number::Float(1.52);
-            let unit = Unit::Hours;
-
-            let pdt = add(&primitive_datetime, &amount_to_add, &unit);
-
-            assert_eq!(pdt, datetime!(2020-01-01 01:31:12));
+            assert_datetime_eq(
+                datetime!(2020-01-01 00:00:00),
+                Number::Float(1.52),
+                Unit::Hours,
+                datetime!(2020-01-01 01:31:12),
+            );
         }
     }
 
     #[test]
     fn test_add_days() {
         {
-            let primitive_datetime = datetime!(2020-01-01 00:00:00);
-            let amount_to_add = Number::Integer(1);
-            let unit = Unit::Days;
-
-            let pdt = add(&primitive_datetime, &amount_to_add, &unit);
-
-            assert_eq!(pdt, datetime!(2020-01-02 00:00:00));
+            assert_datetime_eq(
+                datetime!(2020-01-01 00:00:00),
+                Number::Integer(1),
+                Unit::Days,
+                datetime!(2020-01-02 00:00:00),
+            );
         }
 
         // float amount
         {
-            let primitive_datetime = datetime!(2020-01-01 00:00:00);
-            let amount_to_add = Number::Float(1.52);
-            let unit = Unit::Days;
-
-            let pdt = add(&primitive_datetime, &amount_to_add, &unit);
-
-            assert_eq!(pdt, datetime!(2020-01-02 12:28:48));
+            assert_datetime_eq(
+                datetime!(2020-01-01 00:00:00),
+                Number::Float(1.52),
+                Unit::Days,
+                datetime!(2020-01-02 12:28:48),
+            );
         }
 
         // cross a month
         {
-            let primitive_datetime = datetime!(2020-01-31 00:00:00);
-            let amount_to_add = Number::Integer(1);
-            let unit = Unit::Days;
-
-            let pdt = add(&primitive_datetime, &amount_to_add, &unit);
-
-            assert_eq!(pdt, datetime!(2020-02-01 00:00:00));
+            assert_datetime_eq(
+                datetime!(2020-01-31 00:00:00),
+                Number::Integer(1),
+                Unit::Days,
+                datetime!(2020-02-01 00:00:00),
+            );
         }
     }
 
     #[test]
     fn test_add_months() {
         {
-            let primitive_datetime = datetime!(2020-01-01 00:00:00);
-            let amount_to_add = Number::Integer(1);
-            let unit = Unit::Months;
-
-            let pdt = add(&primitive_datetime, &amount_to_add, &unit);
-
-            assert_eq!(pdt, datetime!(2020-02-01 00:00:00));
+            assert_datetime_eq(
+                datetime!(2020-01-01 00:00:00),
+                Number::Integer(1),
+                Unit::Months,
+                datetime!(2020-02-01 00:00:00),
+            );
         }
 
         {
-            let primitive_datetime = datetime!(2020-01-31 00:00:00);
-            let amount_to_add = Number::Integer(3);
-            let unit = Unit::Months;
-
-            let pdt = add(&primitive_datetime, &amount_to_add, &unit);
-
-            assert_eq!(pdt, datetime!(2020-04-30 00:00:00));
+            assert_datetime_eq(
+                datetime!(2020-01-31 00:00:00),
+                Number::Integer(3),
+                Unit::Months,
+                datetime!(2020-04-30 00:00:00),
+            );
         }
 
         {
-            let primitive_datetime = datetime!(2020-01-31 00:00:00);
-            let amount_to_add = Number::Integer(13);
-            let unit = Unit::Months;
-
-            let pdt = add(&primitive_datetime, &amount_to_add, &unit);
-
-            assert_eq!(pdt, datetime!(2021-02-28 00:00:00));
+            assert_datetime_eq(
+                datetime!(2020-01-31 00:00:00),
+                Number::Integer(13),
+                Unit::Months,
+                datetime!(2021-02-28 00:00:00),
+            );
         }
 
         // float amount
         {
-            let primitive_datetime = datetime!(2020-01-01 00:00:00);
-            let amount_to_add = Number::Float(1.99);
-            let unit = Unit::Months;
-
-            let pdt = add(&primitive_datetime, &amount_to_add, &unit);
-
-            assert_eq!(pdt, datetime!(2020-02-01 00:00:00));
+            assert_datetime_eq(
+                datetime!(2020-01-01 00:00:00),
+                Number::Float(1.99),
+                Unit::Months,
+                datetime!(2020-02-01 00:00:00),
+            );
         }
 
         // leap year
         {
-            let primitive_datetime = datetime!(2021-01-31 00:00:00);
-            let amount_to_add = Number::Integer(1);
-            let unit = Unit::Months;
-
-            let pdt = add(&primitive_datetime, &amount_to_add, &unit);
-
-            assert_eq!(pdt, datetime!(2021-02-28 00:00:00));
+            assert_datetime_eq(
+                datetime!(2021-01-31 00:00:00),
+                Number::Integer(1),
+                Unit::Months,
+                datetime!(2021-02-28 00:00:00),
+            );
         }
     }
 
     #[test]
     fn test_add_years() {
         {
-            let primitive_datetime = datetime!(2020-01-01 00:00:00);
-            let amount_to_add = Number::Integer(1);
-            let unit = Unit::Years;
-
-            let pdt = add(&primitive_datetime, &amount_to_add, &unit);
-
-            assert_eq!(pdt, datetime!(2021-01-01 00:00:00));
+            assert_datetime_eq(
+                datetime!(2020-01-01 00:00:00),
+                Number::Integer(1),
+                Unit::Years,
+                datetime!(2021-01-01 00:00:00),
+            );
         }
 
         // leap year
         {
-            let primitive_datetime = datetime!(2020-02-29 00:00:00);
-            let amount_to_add = Number::Integer(3);
-            let unit = Unit::Years;
-
-            let pdt = add(&primitive_datetime, &amount_to_add, &unit);
-
-            assert_eq!(pdt, datetime!(2023-02-28 00:00:00));
+            assert_datetime_eq(
+                datetime!(2020-02-29 00:00:00),
+                Number::Integer(3),
+                Unit::Years,
+                datetime!(2023-02-28 00:00:00),
+            );
         }
+    }
+
+    fn assert_datetime_eq(
+        pdt: PrimitiveDateTime,
+        amount_to_add: Number,
+        unit: Unit,
+        expected: PrimitiveDateTime,
+    ) {
+        let pdt = add(&pdt, &amount_to_add, &unit);
+        assert_eq!(pdt, expected);
     }
 }
