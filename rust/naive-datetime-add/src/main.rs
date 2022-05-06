@@ -16,7 +16,7 @@ use jet_programmable_rust_binding::{
     },
     value_presenter::{value::naive_date_time::NaiveDateTime, ValuePresenter},
 };
-use time::ext::NumericalDuration;
+use time::{ext::NumericalDuration, util::days_in_year_month};
 use time::{Date, Duration, Month, PrimitiveDateTime, Time};
 
 #[derive(Debug, Clone)]
@@ -188,18 +188,13 @@ fn add_years(primitive_datetime: &PrimitiveDateTime, years: i32) -> PrimitiveDat
 }
 
 fn set_to_closet_day(primitive_datetime: &PrimitiveDateTime, day: u8) -> PrimitiveDateTime {
-    let mut day = day;
+    let year = primitive_datetime.year();
+    let month = primitive_datetime.month();
+    let last_day_of_month = days_in_year_month(year, month);
 
-    loop {
-        match primitive_datetime.replace_day(day) {
-            Ok(pdt) => {
-                break pdt;
-            }
-            Err(_) => {
-                day -= 1;
-            }
-        }
-    }
+    primitive_datetime
+        .replace_day(day.min(last_day_of_month))
+        .unwrap()
 }
 
 program!(
