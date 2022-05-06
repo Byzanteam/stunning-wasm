@@ -131,3 +131,50 @@ program!(
     entrypoint,
     vec![FieldType::DateTimeField, FieldType::RadioButtonField]
 );
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_compose_monthly() {
+        assert_eq!(compose(2021, 1, Frequency::Monthly), "2021 年 1 月份");
+        assert_eq!(compose(2021, 2, Frequency::Monthly), "2021 年 2 月份");
+    }
+
+    #[test]
+    fn test_compose_bimonthly() {
+        assert_eq!(compose(2021, 1, Frequency::Bimonthly), "2021 年 1 - 2 月份");
+        assert_eq!(compose(2021, 2, Frequency::Bimonthly), "2021 年 1 - 2 月份");
+        assert_eq!(compose(2021, 3, Frequency::Bimonthly), "2021 年 3 - 4 月份");
+        assert_eq!(
+            compose(2021, 12, Frequency::Bimonthly),
+            "2021 年 11 - 12 月份"
+        );
+    }
+
+    #[test]
+    fn test_compose_quarterly() {
+        assert_eq!(compose(2021, 1, Frequency::Quarterly), "2021 年一季度");
+        assert_eq!(compose(2021, 2, Frequency::Quarterly), "2021 年一季度");
+        assert_eq!(compose(2021, 3, Frequency::Quarterly), "2021 年一季度");
+        assert_eq!(compose(2021, 4, Frequency::Quarterly), "2021 年二季度");
+        assert_eq!(compose(2021, 5, Frequency::Quarterly), "2021 年二季度");
+        assert_eq!(compose(2021, 6, Frequency::Quarterly), "2021 年二季度");
+        assert_eq!(compose(2021, 12, Frequency::Quarterly), "2021 年四季度");
+    }
+
+    #[test]
+    fn test_compose_semiannually() {
+        assert_eq!(compose(2021, 1, Frequency::Semiannually), "2021 年上半年");
+        assert_eq!(compose(2021, 6, Frequency::Semiannually), "2021 年上半年");
+        assert_eq!(compose(2021, 12, Frequency::Semiannually), "2021 年下半年");
+    }
+
+    #[test]
+    fn test_compose_annually() {
+        assert_eq!(compose(2021, 1, Frequency::Annually), "2021 年全年");
+        assert_eq!(compose(2021, 6, Frequency::Annually), "2021 年全年");
+        assert_eq!(compose(2021, 12, Frequency::Annually), "2021 年全年");
+    }
+}
