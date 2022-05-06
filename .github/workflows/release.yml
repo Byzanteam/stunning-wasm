@@ -1,9 +1,11 @@
-name: Release
+name: Release assemblyscript programs
 
 on:
   push:
     branches:
       - master
+    paths:
+      - 'assemblyscript/**'
 
 jobs:
   cache:
