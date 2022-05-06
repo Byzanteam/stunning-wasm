@@ -5,5 +5,6 @@ members = [
     "integer-sum",
     "departments-iterator",
     "get-naive-datetime-period-text",
-    "naive-datetime-add"
+    "naive-datetime-add",
+    "get-naive-datetime-period-range"
 ]
