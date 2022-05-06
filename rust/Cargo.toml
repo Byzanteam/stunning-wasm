@@ -1,6 +1,7 @@
 [workspace]
 
 members = [
+    "echo", # for testing
     "next-day-of-week",
     "integer-sum",
     "departments-iterator",
