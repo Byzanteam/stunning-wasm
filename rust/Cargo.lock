@@ -65,6 +65,7 @@ name = "list-at"
 version = "0.1.0"
 dependencies = [
  "jet_programmable_rust_binding",
+ "serde_json",
 ]
 
 [[package]]

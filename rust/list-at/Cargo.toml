@@ -6,3 +6,8 @@ edition = "2018"
 
 [dependencies.jet_programmable_rust_binding]
 git = "https://github.com/Byzanteam/jet-programmable-rust-binding"
+
+[dependencies.serde_json]
+version = "1.0"
+default-features = false
+features = ["alloc"]
