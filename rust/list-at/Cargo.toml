@@ -1,0 +1,8 @@
+[package]
+name = "list-at"
+version = "0.1.0"
+authors = ["ByzanTeam <dev@byzan.team>"]
+edition = "2018"
+
+[dependencies.jet_programmable_rust_binding]
+git = "https://github.com/Byzanteam/jet-programmable-rust-binding"

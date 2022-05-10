@@ -7,5 +7,6 @@ members = [
     "departments-iterator",
     "get-naive-datetime-period-text",
     "naive-datetime-add",
-    "get-naive-datetime-period-range"
+    "get-naive-datetime-period-range",
+    "list-at"
 ]
