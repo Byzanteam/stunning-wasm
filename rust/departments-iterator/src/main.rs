@@ -4,10 +4,10 @@ use jet_programmable_rust_binding::{
     outputs::Outputs,
     program,
     value_presenter::{
-        field_type::FieldType, field_value::UserBoundaryFieldValue,
-        value::user_boundary::UserBoundary,
+        field_type::FieldType, literal_naive_value::UserBoundaryFieldValue,
+        literal_value_presenter::LiteralValuePresenter, value::user_boundary::UserBoundary,
+        ValuePresenter,
     },
-    value_presenter::{literal::LiteralValuePresenter, ValuePresenter},
 };
 
 fn entrypoint(inputs: Vec<ValuePresenter>) -> Outputs {

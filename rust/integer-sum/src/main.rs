@@ -4,7 +4,8 @@ use jet_programmable_rust_binding::{
     outputs::Outputs,
     program,
     value_presenter::{
-        field_type::FieldType, field_value::NumericFieldValue, literal::LiteralValuePresenter,
+        field_type::FieldType, literal_naive_value::NumericFieldValue,
+        literal_value_presenter::LiteralValuePresenter,
     },
     value_presenter::{value::number::Number, ValuePresenter},
 };
