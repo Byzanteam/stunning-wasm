@@ -15,15 +15,17 @@ defmodule Runner do
     {:ok, memory} = Wasmex.memory(instance, :uint8, @memory_index)
 
     try do
-      function_args = prepare_args(memory, args)
+      measure(fn ->
+        function_args = prepare_args(memory, args)
 
-      {:ok, _} = Wasmex.call_function(instance, @function_name, function_args)
+        {:ok, _} = Wasmex.call_function(instance, @function_name, function_args)
 
-      receive do
-        {:outputs, outputs} -> {:ok, outputs}
-      after
-        5000 -> {:error, :timeout}
-      end
+        receive do
+          {:outputs, outputs} -> {:ok, outputs}
+        after
+          5000 -> {:error, :timeout}
+        end
+      end)
     after
       GenServer.stop(instance)
     end
@@ -54,6 +56,16 @@ defmodule Runner do
         nil
       end
     }
+  end
+
+  def measure(fun) do
+    started_at = :erlang.monotonic_time(:millisecond)
+    result = fun.()
+    elapsed = :erlang.monotonic_time(:millisecond) - started_at
+
+    IO.inspect("#{elapsed}ms used.")
+
+    result
   end
 end
 
