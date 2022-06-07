@@ -1,0 +1,7 @@
+[package]
+name = "table-row-field-value-to-cascader-field-value"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies.jet_programmable_rust_binding]
+git = "https://github.com/Byzanteam/jet-programmable-rust-binding"

@@ -117,6 +117,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "table-row-field-value-to-cascader-field-value"
+version = "0.1.0"
+dependencies = [
+ "jet_programmable_rust_binding",
+]
+
+[[package]]
 name = "time"
 version = "0.3.9"
 source = "registry+https://github.com/rust-lang/crates.io-index"
