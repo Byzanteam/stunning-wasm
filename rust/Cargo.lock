@@ -47,7 +47,7 @@ checksum = "1aab8fc367588b89dcee83ab0fd66b72b50b72fa1904d7095045ace2b0c81c35"
 [[package]]
 name = "jet_programmable_rust_binding"
 version = "0.1.0"
-source = "git+https://github.com/Byzanteam/jet-programmable-rust-binding#cd521a7e84ff23a55b01e510a5eda10520f807a3"
+source = "git+https://github.com/Byzanteam/jet-programmable-rust-binding#b31b593ebdb7141c393c59a33d690f3707da6964"
 dependencies = [
  "serde_json",
  "time",
