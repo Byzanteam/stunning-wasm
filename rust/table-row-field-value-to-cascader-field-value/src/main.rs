@@ -7,7 +7,10 @@ use jet_programmable_rust_binding::{
         field_type::FieldType,
         literal_naive_value::{CascaderFieldValue, RelationFieldValue, TableRowFieldValue},
         literal_value_presenter::LiteralValuePresenter,
-        value::cascader_value::CascaderValue,
+        value::{
+            cascader_value::CascaderValue,
+            relation_value::{RelationValue, ResourceType},
+        },
         ValuePresenter,
     },
 };
@@ -38,9 +41,16 @@ fn entrypoint(inputs: Vec<ValuePresenter>) -> Outputs {
 fn convert(value: &TableRowFieldValue, table: &RelationFieldValue) -> CascaderFieldValue {
     match value {
         TableRowFieldValue::Value(row_uuid) => match table {
-            RelationFieldValue::Value(relation_value) => CascaderFieldValue::Value(
-                CascaderValue::new(relation_value.resource_uuid.clone(), row_uuid.clone()),
-            ),
+            RelationFieldValue::Value(RelationValue {
+                resource_type: ResourceType::DatabaseTable,
+                resource_uuid,
+            }) => CascaderFieldValue::Value(CascaderValue::new(
+                resource_uuid.clone(),
+                row_uuid.clone(),
+            )),
+            RelationFieldValue::Value(relation_value) => {
+                panic!("Expected a database table, got {:?}", relation_value)
+            }
             RelationFieldValue::Nil => CascaderFieldValue::Nil,
         },
         TableRowFieldValue::Nil => CascaderFieldValue::Nil,
@@ -104,5 +114,19 @@ mod tests {
         let expected = CascaderFieldValue::Nil;
 
         assert_eq!(convert(&value, &table), expected);
+    }
+
+    #[test]
+    #[should_panic]
+
+    fn test_converts_non_table() {
+        let row_uuid = Uuid::new("67e55044-10b1-426f-9247-000000000000").unwrap();
+        let uuid = Uuid::new("67e55044-10b1-426f-9247-000000000001").unwrap();
+
+        let value = TableRowFieldValue::Value(row_uuid.clone());
+        let resource =
+            RelationFieldValue::Value(RelationValue::new(ResourceType::DatabaseRow, uuid.clone()));
+
+        convert(&value, &resource);
     }
 }
