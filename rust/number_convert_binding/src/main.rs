@@ -1,7 +1,9 @@
+
 #![cfg_attr(not(test), no_main)]
+
+use jet_programmable_rust_binding::hostcalls::hostcall_set_outputs;
 #[no_mangle]
 pub extern "C" fn int_number_to_chinese(number: usize){
-
     let nlen = number.to_string().len();
     let mut sum = String::new();
     if nlen > 8 {
@@ -151,20 +153,14 @@ mod tests {
 
     #[test]
     fn test_integer() {
-        println!("{}",int_number_to_chinese(12345678));
-        println!("{}",int_number_to_chinese(12305670));
+        int_number_to_chinese(12345678);
+        int_number_to_chinese(12305670);
     }
     #[test]
     fn test_float() {
-        println!("{}",float_number_to_chinese(12121.21));
-        println!("{}",float_number_to_chinese(120021.21));
-        println!("{}",float_number_to_chinese(121001.21));
+        float_number_to_chinese(12121.21);
+        float_number_to_chinese(120021.21);
+        float_number_to_chinese(121001.21);
     }
-    #[test]
-    pub fn test_len_addr(){
-        let c = int_number_to_chinese(12345678);
-        let len = c & 0xff;
-        let addr = c >> 8;
-        println!("addr: {}, len: {}", addr, len);
-    }
+
 }

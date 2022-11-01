@@ -1,7 +1,6 @@
 #![cfg_attr(not(test), no_main)]
 #[no_mangle]
 pub extern "C" fn int_number_to_chinese(number: usize) ->  u64 {
-
     let nlen = number.to_string().len();
     let mut sum = String::new();
     if nlen > 8 {
@@ -165,6 +164,13 @@ mod tests {
     #[test]
     pub fn test_len_addr(){
         let c = int_number_to_chinese(12345678);
+        let len = c & 0xff;
+        let addr = c >> 8;
+        println!("addr: {}, len: {}", addr, len);
+    }
+    #[test]
+    pub fn test_len_addr_float(){
+        let c = float_number_to_chinese(12345678.21);
         let len = c & 0xff;
         let addr = c >> 8;
         println!("addr: {}, len: {}", addr, len);
