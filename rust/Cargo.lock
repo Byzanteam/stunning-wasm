@@ -98,6 +98,13 @@ name = "number_convert"
 version = "0.1.0"
 
 [[package]]
+name = "number_convert_binding"
+version = "0.1.0"
+dependencies = [
+ "jet_programmable_rust_binding",
+]
+
+[[package]]
 name = "ryu"
 version = "1.0.9"
 source = "registry+https://github.com/rust-lang/crates.io-index"
