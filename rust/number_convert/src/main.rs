@@ -1,6 +1,26 @@
 #![cfg_attr(not(test), no_main)]
+
+
+
 #[no_mangle]
 pub extern "C" fn int_number_to_chinese(number: usize) ->  u64 {
+    let sum = int_chinese(number);
+    let addr = sum.as_ptr() as u64;
+    let len = sum.len() as u64;
+    let c = len | addr << 8;
+    c
+}
+#[no_mangle]
+pub extern "C" fn float_number_to_chinese(number: f64) -> u64 {
+    let sum = float_chinese(number);
+    let addr = sum.as_ptr() as u64;
+    let len = sum.len() as u64;
+    let c = len | addr << 8;
+    c
+}
+
+
+fn int_chinese(number: usize) -> String {
     let nlen = number.to_string().len();
     let mut sum = String::new();
     if nlen > 8 {
@@ -16,14 +36,10 @@ pub extern "C" fn int_number_to_chinese(number: usize) ->  u64 {
     }else if nlen >=1 && nlen <= 4 {
         sum += &chn_unit_ch(nlen-4, &number.to_string());
     }
-    let addr = sum.as_ptr() as u64;
-    let len = sum.len() as u64;
-    let c = len | addr << 8;
-    c
+    
+    sum
 }
-#[no_mangle]
-pub extern "C" fn float_number_to_chinese(number: f64) -> u64 {
-
+fn float_chinese(number: f64) -> String {
     let nlen = number.to_string().find('.').unwrap();
     let mut sum = String::new();
     if nlen > 8 {
@@ -42,11 +58,9 @@ pub extern "C" fn float_number_to_chinese(number: f64) -> u64 {
         sum += &chn_unit_ch(nlen-4, &number.to_string()[..nlen]);
         sum += &chn_unit_ch_float(&number.to_string()[nlen..]);
     }
-    let addr = sum.as_ptr() as u64;
-    let len = sum.len() as u64;
-    let c = len | addr << 8;
-    c
+    sum
 }
+
 
 fn match_number(nchar: char) -> String {
     let ncgar = match nchar{
@@ -88,8 +102,9 @@ fn chn_unit_ch_four(nstr: &str) -> String{
         if j == 3 && i == '0'{
             break;
         }
+         
         sum += &match_number(i);
-        if j < 3 {
+        if j < 3 && i != '0'{
             sum += arr_string[j];
         }
         j += 1;
@@ -107,7 +122,7 @@ fn chn_unit_ch_three(nstr: &str) -> String {
             break;
         }
         sum += &match_number(i);
-        if j < 2 {
+        if j < 2 && i != '0'{
             sum += arr_string[j];
         }
         j += 1;
@@ -123,7 +138,7 @@ fn chn_unit_ch_two(nstr: &str) -> String {
             break;
         }
         sum += &match_number(i);
-        if j < 1 {
+        if j < 1 &&i != '0'{
             sum += arr_string[j];
         }
         j += 1;
@@ -146,33 +161,25 @@ fn chn_unit_ch_float(nstr: &str) -> String{
 }
 
 
+
 #[cfg(test)]
 mod tests {
     use super::*;
-
+    
     #[test]
     fn test_integer() {
-        println!("{}",int_number_to_chinese(12345678));
-        println!("{}",int_number_to_chinese(12305670));
+        assert_eq!("壹千贰百叁十肆万伍千陆百柒十捌", int_chinese(12345678));
+        assert_eq!("壹千贰百叁十万伍千陆百柒十", int_chinese(12305670));
+        assert_eq!("壹百贰十叁亿零伍百陆十柒万零壹百贰十贰", int_chinese(12305670122));
+        assert_eq!("壹百零壹万壹千贰百叁十肆", int_chinese(1011234));
     }
     #[test]
     fn test_float() {
-        println!("{}",float_number_to_chinese(12121.21));
-        println!("{}",float_number_to_chinese(120021.21));
-        println!("{}",float_number_to_chinese(121001.21));
+        assert_eq!("壹万贰千壹百贰十壹点贰壹叁", float_chinese(12121.213));
+        assert_eq!("壹十贰万零零贰十壹点贰壹", float_chinese(120021.21));
+        assert_eq!("壹十贰万壹千零零壹点贰壹", float_chinese(121001.21));
+        assert_eq!("壹百贰十叁亿零伍百陆十柒万零壹百贰十贰点贰壹叁", float_chinese(12305670122.213));
     }
-    #[test]
-    pub fn test_len_addr(){
-        let c = int_number_to_chinese(12345678);
-        let len = c & 0xff;
-        let addr = c >> 8;
-        println!("addr: {}, len: {}", addr, len);
-    }
-    #[test]
-    pub fn test_len_addr_float(){
-        let c = float_number_to_chinese(12345678.21);
-        let len = c & 0xff;
-        let addr = c >> 8;
-        println!("addr: {}, len: {}", addr, len);
-    }
+
+
 }
