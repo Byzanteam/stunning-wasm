@@ -9,5 +9,6 @@ members = [
     "naive-datetime-add",
     "get-naive-datetime-period-range",
     "list-at",
-    "table-row-field-value-to-cascader-field-value"
+    "table-row-field-value-to-cascader-field-value",
+    "number_convert"
 ]
