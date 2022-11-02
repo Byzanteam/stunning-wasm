@@ -3,7 +3,7 @@
 version = 3
 
 [[package]]
-name = "chinese_digital_conversion"
+name = "chinese-digital-conversion"
 version = "0.1.0"
 
 [[package]]
