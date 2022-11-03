@@ -3,6 +3,10 @@
 version = 3
 
 [[package]]
+name = "chinese-currency-conversion"
+version = "0.1.0"
+
+[[package]]
 name = "departments-iterator"
 version = "0.1.0"
 dependencies = [
