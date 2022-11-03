@@ -1,5 +1,5 @@
 [package]
-name = "chinese-digital-conversion"
+name = "chinese-currency-conversion"
 version = "0.1.0"
 edition = "2021"
 
