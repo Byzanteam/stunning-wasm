@@ -6,21 +6,21 @@ version = 3
 name = "departments-iterator"
 version = "0.1.0"
 dependencies = [
- "jet_programmable_rust_binding",
+ "jet_programmable_rust_binding 0.1.0 (git+https://github.com/Byzanteam/jet-programmable-rust-binding)",
 ]
 
 [[package]]
 name = "echo"
 version = "0.1.0"
 dependencies = [
- "jet_programmable_rust_binding",
+ "jet_programmable_rust_binding 0.1.0 (git+https://github.com/Byzanteam/jet-programmable-rust-binding)",
 ]
 
 [[package]]
 name = "get-naive-datetime-period-range"
 version = "0.1.0"
 dependencies = [
- "jet_programmable_rust_binding",
+ "jet_programmable_rust_binding 0.1.0 (git+https://github.com/Byzanteam/jet-programmable-rust-binding)",
  "time",
 ]
 
@@ -28,14 +28,14 @@ dependencies = [
 name = "get-naive-datetime-period-text"
 version = "0.1.0"
 dependencies = [
- "jet_programmable_rust_binding",
+ "jet_programmable_rust_binding 0.1.0 (git+https://github.com/Byzanteam/jet-programmable-rust-binding)",
 ]
 
 [[package]]
 name = "integer-sum"
 version = "0.1.0"
 dependencies = [
- "jet_programmable_rust_binding",
+ "jet_programmable_rust_binding 0.1.0 (git+https://github.com/Byzanteam/jet-programmable-rust-binding)",
 ]
 
 [[package]]
@@ -43,6 +43,16 @@ name = "itoa"
 version = "1.0.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "1aab8fc367588b89dcee83ab0fd66b72b50b72fa1904d7095045ace2b0c81c35"
+
+[[package]]
+name = "jet_programmable_rust_binding"
+version = "0.1.0"
+source = "git+https://github.com/Byzanteam/jet-programmable-rust-binding?branch=feat/fahchen/networking#79a7142509a8b656962cb641dbf8ce29aaf464cd"
+dependencies = [
+ "serde_json",
+ "time",
+ "uuid",
+]
 
 [[package]]
 name = "jet_programmable_rust_binding"
@@ -64,7 +74,7 @@ checksum = "5916d2ae698f6de9bfb891ad7a8d65c09d232dc58cc4ac433c7da3b2fd84bc2b"
 name = "list-at"
 version = "0.1.0"
 dependencies = [
- "jet_programmable_rust_binding",
+ "jet_programmable_rust_binding 0.1.0 (git+https://github.com/Byzanteam/jet-programmable-rust-binding)",
  "serde_json",
 ]
 
@@ -72,15 +82,22 @@ dependencies = [
 name = "naive-datetime-add"
 version = "0.1.0"
 dependencies = [
- "jet_programmable_rust_binding",
+ "jet_programmable_rust_binding 0.1.0 (git+https://github.com/Byzanteam/jet-programmable-rust-binding)",
  "time",
+]
+
+[[package]]
+name = "networking-sample"
+version = "0.1.0"
+dependencies = [
+ "jet_programmable_rust_binding 0.1.0 (git+https://github.com/Byzanteam/jet-programmable-rust-binding?branch=feat/fahchen/networking)",
 ]
 
 [[package]]
 name = "next-day-of-week"
 version = "0.1.0"
 dependencies = [
- "jet_programmable_rust_binding",
+ "jet_programmable_rust_binding 0.1.0 (git+https://github.com/Byzanteam/jet-programmable-rust-binding)",
  "time",
 ]
 
@@ -120,7 +137,7 @@ dependencies = [
 name = "table-row-field-value-to-cascader-field-value"
 version = "0.1.0"
 dependencies = [
- "jet_programmable_rust_binding",
+ "jet_programmable_rust_binding 0.1.0 (git+https://github.com/Byzanteam/jet-programmable-rust-binding)",
 ]
 
 [[package]]
