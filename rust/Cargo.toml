@@ -2,6 +2,7 @@
 
 members = [
     "echo", # for testing
+    "network",
     "next-day-of-week",
     "integer-sum",
     "departments-iterator",
