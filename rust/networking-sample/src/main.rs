@@ -1,9 +1,6 @@
-#![cfg_attr(not(test), no_main)]
-
-use std::str;
-
-use jet_programmable_rust_binding::networking::{request, NetworkingRequest};
+#![no_main]
 use jet_programmable_rust_binding::{
+    networking::{request, NetworkingRequest},
     outputs::Outputs,
     program,
     value_presenter::ValuePresenter,
@@ -12,6 +9,7 @@ use jet_programmable_rust_binding::{
         literal_value_presenter::LiteralValuePresenter,
     },
 };
+use serde_json::Value;
 
 fn entrypoint(inputs: Vec<ValuePresenter>) -> Outputs {
     let timezone = inputs
@@ -27,19 +25,26 @@ fn entrypoint(inputs: Vec<ValuePresenter>) -> Outputs {
                 SingleLineFieldValue::Nil => "Asia/Shanghai",
             },
         );
-
     let url = "http://worldtimeapi.org/api/timezone/".to_owned() + timezone;
 
     let request_data = NetworkingRequest::get(url, Vec::new());
     let response = request(&request_data);
 
-    let body = match response.unwrap().body {
-        Some(slice) => str::from_utf8(&slice).unwrap().to_owned(),
-        None => "".to_owned(),
+    let outputs = match response {
+        Ok(res) => match serde_json::from_str::<Value>(&res.body.unwrap()) {
+            Ok(value) => {
+                if let Some(time) = value.get("datetime").unwrap().as_str() {
+                    time.to_string()
+                } else {
+                    panic!("Invalid datetime");
+                }
+            }
+            Err(_e) => panic!("bad response"),
+        },
+        Err(err) => panic!("{}",err.message),
     };
-
     Outputs::build(vec![ValuePresenter::Literal(
-        LiteralValuePresenter::SingleLineField(SingleLineFieldValue::Value(body)),
+        LiteralValuePresenter::SingleLineField(SingleLineFieldValue::Value(outputs)),
     )])
 }
 
