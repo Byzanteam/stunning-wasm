@@ -1,3 +1,4 @@
+#![cfg_attr(not(test), no_main)]
 use jet_programmable_rust_binding::request::{network, RequestData, ResponseData};
 
 #[no_mangle]
