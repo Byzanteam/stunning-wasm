@@ -4,7 +4,7 @@ use jet_programmable_rust_binding::request::{network, RequestData, ResponseData}
 pub fn run() {
     let request_data = RequestData::new(
         "GET".to_string(),
-        "https://baidu.com".to_string(),
+        "https://httpbin.org".to_string(),
         Vec::new(),
         None,
     );
