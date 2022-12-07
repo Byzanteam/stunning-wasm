@@ -1,8 +1,8 @@
 #![cfg_attr(not(test), no_main)]
-use jet_programmable_rust_binding::request::{network, RequestData, ResponseData};
 use jet_programmable_rust_binding::hostcalls::hostcall_set_outputs;
-#![no_main]
-use hello::{request, NetworkingRequest, NetworkingResponse, ResponseData};
+use jet_programmable_rust_binding::networking::{
+    request, NetworkingRequest, NetworkingResponse, ResponseData,
+};
 use serde_json::Value;
 
 #[no_mangle]
