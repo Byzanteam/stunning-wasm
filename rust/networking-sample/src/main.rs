@@ -1,23 +1,16 @@
 #![cfg_attr(not(test), no_main)]
 use jet_programmable_rust_binding::hostcalls::hostcall_set_outputs;
-use jet_programmable_rust_binding::networking::{
-    request, NetworkingRequest, NetworkingResponse, ResponseData,
-};
+use jet_programmable_rust_binding::networking::{request, Get, NetworkingRequest, ResponseData};
 use serde_json::Value;
 
 #[no_mangle]
 pub fn run() {
-    let request_data = NetworkingRequest::get(
+    let request_body = NetworkingRequest::Get(Get::request_body(
         "https://worldtimeapi.org/api/timezone/Asia/Shanghai".to_string(),
-        Vec::new(),
-    );
-    let response = {
-        let network_response: NetworkingResponse =
-            serde_json::from_str(request(request_data)).unwrap();
-        network_response.response_data()
-    };
+    ));
+    let respose = request(request_body);
 
-    match response {
+    match respose {
         ResponseData::Response(res) => {
             if let Some(body) = res.body {
                 let body: Value = serde_json::from_str(&body).unwrap();
