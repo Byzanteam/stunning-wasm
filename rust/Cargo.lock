@@ -6,21 +6,21 @@ version = 3
 name = "departments-iterator"
 version = "0.1.0"
 dependencies = [
- "jet_programmable_rust_binding 0.1.0 (git+https://github.com/Byzanteam/jet-programmable-rust-binding)",
+ "jet_programmable_rust_binding",
 ]
 
 [[package]]
 name = "echo"
 version = "0.1.0"
 dependencies = [
- "jet_programmable_rust_binding 0.1.0 (git+https://github.com/Byzanteam/jet-programmable-rust-binding)",
+ "jet_programmable_rust_binding",
 ]
 
 [[package]]
 name = "get-naive-datetime-period-range"
 version = "0.1.0"
 dependencies = [
- "jet_programmable_rust_binding 0.1.0 (git+https://github.com/Byzanteam/jet-programmable-rust-binding)",
+ "jet_programmable_rust_binding",
  "time",
 ]
 
@@ -28,26 +28,26 @@ dependencies = [
 name = "get-naive-datetime-period-text"
 version = "0.1.0"
 dependencies = [
- "jet_programmable_rust_binding 0.1.0 (git+https://github.com/Byzanteam/jet-programmable-rust-binding)",
+ "jet_programmable_rust_binding",
 ]
 
 [[package]]
 name = "integer-sum"
 version = "0.1.0"
 dependencies = [
- "jet_programmable_rust_binding 0.1.0 (git+https://github.com/Byzanteam/jet-programmable-rust-binding)",
+ "jet_programmable_rust_binding",
 ]
 
 [[package]]
 name = "itoa"
-version = "1.0.1"
+version = "1.0.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "1aab8fc367588b89dcee83ab0fd66b72b50b72fa1904d7095045ace2b0c81c35"
+checksum = "fad582f4b9e86b6caa621cabeb0963332d92eea04729ab12892c2533951e6440"
 
 [[package]]
 name = "jet_programmable_rust_binding"
 version = "0.1.0"
-source = "git+https://github.com/Byzanteam/jet-programmable-rust-binding?branch=feat/fahchen/networking#1d2be2387c4132eb9de03b5c705780e14340c01c"
+source = "git+https://github.com/Byzanteam/jet-programmable-rust-binding#fd4f1362e8dc9fc860be9009ee12a4784cd72557"
 dependencies = [
  "serde",
  "serde_json",
@@ -56,26 +56,10 @@ dependencies = [
 ]
 
 [[package]]
-name = "jet_programmable_rust_binding"
-version = "0.1.0"
-source = "git+https://github.com/Byzanteam/jet-programmable-rust-binding#b31b593ebdb7141c393c59a33d690f3707da6964"
-dependencies = [
- "serde_json",
- "time",
- "uuid",
-]
-
-[[package]]
-name = "libc"
-version = "0.2.125"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5916d2ae698f6de9bfb891ad7a8d65c09d232dc58cc4ac433c7da3b2fd84bc2b"
-
-[[package]]
 name = "list-at"
 version = "0.1.0"
 dependencies = [
- "jet_programmable_rust_binding 0.1.0 (git+https://github.com/Byzanteam/jet-programmable-rust-binding)",
+ "jet_programmable_rust_binding",
  "serde_json",
 ]
 
@@ -83,7 +67,7 @@ dependencies = [
 name = "naive-datetime-add"
 version = "0.1.0"
 dependencies = [
- "jet_programmable_rust_binding 0.1.0 (git+https://github.com/Byzanteam/jet-programmable-rust-binding)",
+ "jet_programmable_rust_binding",
  "time",
 ]
 
@@ -91,7 +75,7 @@ dependencies = [
 name = "networking-sample"
 version = "0.1.0"
 dependencies = [
- "jet_programmable_rust_binding 0.1.0 (git+https://github.com/Byzanteam/jet-programmable-rust-binding?branch=feat/fahchen/networking)",
+ "jet_programmable_rust_binding",
  "serde_json",
 ]
 
@@ -99,57 +83,48 @@ dependencies = [
 name = "next-day-of-week"
 version = "0.1.0"
 dependencies = [
- "jet_programmable_rust_binding 0.1.0 (git+https://github.com/Byzanteam/jet-programmable-rust-binding)",
+ "jet_programmable_rust_binding",
  "time",
 ]
 
 [[package]]
-name = "num_threads"
-version = "0.1.6"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2819ce041d2ee131036f4fc9d6ae7ae125a3a40e97ba64d04fe799ad9dabbb44"
-dependencies = [
- "libc",
-]
-
-[[package]]
 name = "proc-macro2"
-version = "1.0.47"
+version = "1.0.49"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5ea3d908b0e36316caf9e9e2c4625cdde190a7e6f440d794667ed17a1855e725"
+checksum = "57a8eca9f9c4ffde41714334dee777596264c7825420f521abc92b5b5deb63a5"
 dependencies = [
  "unicode-ident",
 ]
 
 [[package]]
 name = "quote"
-version = "1.0.21"
+version = "1.0.23"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "bbe448f377a7d6961e30f5955f9b8d106c3f5e449d493ee1b125c1d43c2b5179"
+checksum = "8856d8364d252a14d474036ea1358d63c9e6965c8e5c1885c18f73d70bff9c7b"
 dependencies = [
  "proc-macro2",
 ]
 
 [[package]]
 name = "ryu"
-version = "1.0.9"
+version = "1.0.12"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "73b4b750c782965c211b42f022f59af1fbceabdd026623714f104152f1ec149f"
+checksum = "7b4b9743ed687d4b4bcedf9ff5eaa7398495ae14e61cba0a295704edbc7decde"
 
 [[package]]
 name = "serde"
-version = "1.0.137"
+version = "1.0.152"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "61ea8d54c77f8315140a05f4c7237403bf38b72704d031543aa1d16abbf517d1"
+checksum = "bb7d1f0d3021d347a83e556fc4683dea2ea09d87bccdf88ff5c12545d89d5efb"
 dependencies = [
  "serde_derive",
 ]
 
 [[package]]
 name = "serde_derive"
-version = "1.0.137"
+version = "1.0.152"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "1f26faba0c3959972377d3b2d306ee9f71faee9714294e41bb777f83f88578be"
+checksum = "af487d118eecd09402d70a5d72551860e788df87b464af30e5ea6a38c75c541e"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -158,9 +133,9 @@ dependencies = [
 
 [[package]]
 name = "serde_json"
-version = "1.0.89"
+version = "1.0.91"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "020ff22c755c2ed3f8cf162dbb41a7268d934702f3ed3631656ea597e08fc3db"
+checksum = "877c235533714907a8c2464236f5c4b2a17262ef1bd71f38f35ea592c8da6883"
 dependencies = [
  "itoa",
  "ryu",
@@ -169,9 +144,9 @@ dependencies = [
 
 [[package]]
 name = "syn"
-version = "1.0.105"
+version = "1.0.107"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "60b9b43d45702de4c839cb9b51d9f529c5dd26a4aff255b42b1ebc03e88ee908"
+checksum = "1f4064b5b16e03ae50984a5a8ed5d4f8803e6bc1fd170a3cda91a1be4b18e3f5"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -182,35 +157,44 @@ dependencies = [
 name = "table-row-field-value-to-cascader-field-value"
 version = "0.1.0"
 dependencies = [
- "jet_programmable_rust_binding 0.1.0 (git+https://github.com/Byzanteam/jet-programmable-rust-binding)",
+ "jet_programmable_rust_binding",
 ]
 
 [[package]]
 name = "time"
-version = "0.3.9"
+version = "0.3.17"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c2702e08a7a860f005826c6815dcac101b19b5eb330c27fe4a5928fec1d20ddd"
+checksum = "a561bf4617eebd33bca6434b988f39ed798e527f51a1e797d0ee4f61c0a38376"
 dependencies = [
  "itoa",
- "libc",
- "num_threads",
+ "serde",
+ "time-core",
  "time-macros",
 ]
 
 [[package]]
-name = "time-macros"
-version = "0.2.4"
+name = "time-core"
+version = "0.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "42657b1a6f4d817cda8e7a0ace261fe0cc946cf3a80314390b22cc61ae080792"
+checksum = "2e153e1f1acaef8acc537e68b44906d2db6436e2b35ac2c6b42640fff91f00fd"
+
+[[package]]
+name = "time-macros"
+version = "0.2.6"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "d967f99f534ca7e495c575c62638eebc2898a8c84c119b89e250477bc4ba16b2"
+dependencies = [
+ "time-core",
+]
 
 [[package]]
 name = "unicode-ident"
-version = "1.0.5"
+version = "1.0.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6ceab39d59e4c9499d4e5a8ee0e2735b891bb7308ac83dfb4e80cad195c9f6f3"
+checksum = "84a22b9f218b40614adcb3f4ff08b703773ad44fa9423e4e0d346d5db86e4ebc"
 
 [[package]]
 name = "uuid"
-version = "1.0.0"
+version = "1.2.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8cfcd319456c4d6ea10087ed423473267e1a071f3bc0aa89f80d60997843c6f0"
+checksum = "422ee0de9031b5b948b97a8fc04e3aa35230001a722ddd27943e0be31564ce4c"

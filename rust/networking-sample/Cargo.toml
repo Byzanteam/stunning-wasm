@@ -9,6 +9,4 @@ serde_json = "1.0.89"
 
 [dependencies.jet_programmable_rust_binding]
 git = "https://github.com/Byzanteam/jet-programmable-rust-binding"
-# TODO: remove below, use main branch
-branch = "feat/fahchen/networking"
 features = ["networking"]
