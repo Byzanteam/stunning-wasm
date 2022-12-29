@@ -2,6 +2,9 @@
 
 members = [
     "echo", # for testing
+    # sample
+    "networking-sample",
+    # modules
     "next-day-of-week",
     "integer-sum",
     "departments-iterator",
