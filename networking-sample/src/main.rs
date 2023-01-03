@@ -41,7 +41,7 @@ fn entrypoint(inputs: Vec<ValuePresenter>) -> Outputs {
             }
             Err(_e) => panic!("bad response"),
         },
-        Err(err) => panic!("{}",err.message),
+        Err(err) => panic!("{}", err.message),
     };
     Outputs::build(vec![ValuePresenter::Literal(
         LiteralValuePresenter::SingleLineField(SingleLineFieldValue::Value(outputs)),
