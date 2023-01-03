@@ -291,18 +291,18 @@ fn list_at(list_vp: &ValuePresenter, index: i64) -> (ValuePresenter, bool) {
 }
 
 fn is_list_field_type(field_type: &FieldType) -> bool {
-    match field_type {
-        FieldType::BooleanListField => true,
-        FieldType::CascaderListField => true,
-        FieldType::DateTimeListField => true,
-        FieldType::FileListField => true,
-        FieldType::MultipleLineListField => true,
-        FieldType::NumericListField => true,
-        FieldType::RelationListField => true,
-        FieldType::SingleLineListField => true,
-        FieldType::TableRowListField => true,
-        _ => false,
-    }
+    matches!(
+        field_type,
+        FieldType::BooleanListField
+            | FieldType::CascaderListField
+            | FieldType::DateTimeListField
+            | FieldType::FileListField
+            | FieldType::MultipleLineListField
+            | FieldType::NumericListField
+            | FieldType::RelationListField
+            | FieldType::SingleLineListField
+            | FieldType::TableRowListField
+    )
 }
 
 fn normalize_index(index: i64, len: usize) -> usize {
