@@ -123,9 +123,9 @@ mod tests {
         let row_uuid = Uuid::new("67e55044-10b1-426f-9247-000000000000").unwrap();
         let uuid = Uuid::new("67e55044-10b1-426f-9247-000000000001").unwrap();
 
-        let value = TableRowFieldValue::Value(row_uuid.clone());
+        let value = TableRowFieldValue::Value(row_uuid);
         let resource =
-            RelationFieldValue::Value(RelationValue::new(ResourceType::DatabaseRow, uuid.clone()));
+            RelationFieldValue::Value(RelationValue::new(ResourceType::DatabaseRow, uuid));
 
         convert(&value, &resource);
     }
