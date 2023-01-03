@@ -330,7 +330,7 @@ mod tests {
             {
                 "type": "literal",
                 "field_type": "numeric_field",
-                "value": 0 as i64
+                "value": 0_i64
             }]);
 
             let result = extract_list_and_index(&json);
@@ -357,7 +357,7 @@ mod tests {
             {
                 "type": "literal",
                 "field_type": "numeric_field",
-                "value": -1 as i64
+                "value": -1_i64
             }]);
 
             let result = extract_list_and_index(&json);
@@ -383,7 +383,7 @@ mod tests {
             {
                 "type": "literal",
                 "field_type": "numeric_field",
-                "value": 0 as i64
+                "value": 0_i64
             }]);
 
             let result = extract_list_and_index(&json);
@@ -400,7 +400,7 @@ mod tests {
             {
                 "type": "literal",
                 "field_type": "numeric_field",
-                "value": 0.1 as f64
+                "value": 0.1_f64
             }]);
 
             let result = extract_list_and_index(&json);
