@@ -1,22 +1,24 @@
-name: CI
+name: slp-api-ci
 
 on:
   push:
-    paths-ignore:
-      - 'slp-api/**'
+    paths:
+      - 'slp-api/flows/**'
   pull_request:
-    paths-ignore:
-      - 'slp-api/**'
+    paths:
+      - 'slp-api/flows/**'
+
 env:
   CARGO_TERM_COLOR: always
 
 jobs:
-  ci:
+  check-slp-api-wasm:
     runs-on: ubuntu-latest
-
+    defaults:
+      run:
+        working-directory: slp-api/flows
     steps:
     - uses: actions/checkout@v3
-
     - uses: actions-rs/toolchain@v1
       with:
           toolchain: stable
@@ -24,7 +26,6 @@ jobs:
           default: true
           components: rustfmt, clippy
           target: wasm32-unknown-unknown
-
     - uses: actions/cache@v3
       with:
         path: |
@@ -34,7 +35,6 @@ jobs:
           ~/.cargo/git/db/
           target/
         key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
-
     - run: cargo fmt --check
     - run: cargo clippy -- -D warnings
     - run: cargo build --verbose --target wasm32-unknown-unknown
