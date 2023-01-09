@@ -1,5 +1,6 @@
 [workspace]
 
 members = [
-    "echo"
+    "echo",
+    "get-flows-details"
 ]
