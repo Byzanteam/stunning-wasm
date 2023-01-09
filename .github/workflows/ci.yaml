@@ -1,9 +1,6 @@
-name: CI
+name: Root wasms ci
 
 on:
-  push:
-    paths-ignore:
-      - 'slp-api/**'
   pull_request:
     paths-ignore:
       - 'slp-api/**'
@@ -11,31 +8,8 @@ env:
   CARGO_TERM_COLOR: always
 
 jobs:
-  ci:
-    runs-on: ubuntu-latest
+  root-ci:
+    uses: ./.github/workflows/rust-ci.yaml
+    with:
+      working-directory: ./
 
-    steps:
-    - uses: actions/checkout@v3
-
-    - uses: actions-rs/toolchain@v1
-      with:
-          toolchain: stable
-          override: true
-          default: true
-          components: rustfmt, clippy
-          target: wasm32-unknown-unknown
-
-    - uses: actions/cache@v3
-      with:
-        path: |
-          ~/.cargo/bin/
-          ~/.cargo/registry/index/
-          ~/.cargo/registry/cache/
-          ~/.cargo/git/db/
-          target/
-        key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
-
-    - run: cargo fmt --check
-    - run: cargo clippy -- -D warnings
-    - run: cargo build --verbose --target wasm32-unknown-unknown
-    - run: cargo test --verbose
