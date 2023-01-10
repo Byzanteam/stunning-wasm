@@ -14,6 +14,7 @@ name = "get-flows-details"
 version = "0.1.0"
 dependencies = [
  "jet_programmable_rust_binding",
+ "slp-api-public",
 ]
 
 [[package]]
