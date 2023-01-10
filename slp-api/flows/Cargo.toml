@@ -2,5 +2,6 @@
 
 members = [
     "echo",
+    "slp-api-public",
     "get-flows-details"
 ]
