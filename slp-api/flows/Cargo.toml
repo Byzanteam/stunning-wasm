@@ -3,5 +3,6 @@
 members = [
     "echo",
     "flow-util",
-    "get-flow-details"
+    "get-flow-details",
+    "get-flow-task-list"
 ]
