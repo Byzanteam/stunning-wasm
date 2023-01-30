@@ -17,6 +17,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "get-flow-details"
+version = "0.1.0"
+dependencies = [
+ "flow-util",
+ "jet_programmable_rust_binding",
+]
+
+[[package]]
 name = "itoa"
 version = "1.0.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
