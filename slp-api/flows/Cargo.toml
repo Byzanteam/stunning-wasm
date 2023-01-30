@@ -4,5 +4,6 @@ members = [
     "echo",
     "flow-util",
     "get-flow-details",
-    "get-flow-task-list"
+    "get-flow-task-list",
+    "get-flow-single-record"
 ]
