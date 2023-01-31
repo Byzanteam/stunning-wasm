@@ -1,8 +1,9 @@
 pub mod flow_util {
     use jet_programmable_rust_binding::{
-        networking::NetworkingResponse,
+        networking::{NetworkingHeaders, NetworkingResponse},
         outputs::Outputs,
         value_presenter::{
+            literal_list_value::SingleLineListFieldValue,
             literal_naive_value::{NumericFieldValue, SingleLineFieldValue},
             literal_value_presenter::LiteralValuePresenter,
             value::number::Number,
@@ -54,6 +55,30 @@ pub mod flow_util {
         }
     }
 
+    pub fn extract_single_line_list_field_value(
+        value_presenter: &ValuePresenter,
+    ) -> Result<Option<Vec<String>>, ExtractError> {
+        match value_presenter {
+            ValuePresenter::Literal(LiteralValuePresenter::SingleLineListField(
+                SingleLineListFieldValue::Value(values),
+            )) => {
+                let strings: Vec<String> = values
+                    .iter()
+                    .filter_map(|value| match value {
+                        SingleLineFieldValue::Value(s) => Some(s.to_owned()),
+                        SingleLineFieldValue::Nil => None,
+                    })
+                    .collect();
+                Ok(Some(strings))
+            }
+            ValuePresenter::Literal(LiteralValuePresenter::SingleLineListField(
+                SingleLineListFieldValue::Nil,
+            )) => Ok(None),
+            _ => Err(ExtractError::new(
+                "Unexpected a string list value parameter".to_string(),
+            )),
+        }
+    }
     //According to the practical experience,
     //it is best to implement a method to convert the enum of Number to string,
     //but we will implement this function directly here
@@ -69,5 +94,20 @@ pub mod flow_util {
                 response.body.unwrap(),
             )),
         )])
+    }
+    pub fn pop_params(
+        inputs: Vec<ValuePresenter>,
+    ) -> Result<(String, NetworkingHeaders, Vec<ValuePresenter>), ExtractError> {
+        let base_url = extract_single_line_field_value(inputs.get(0).unwrap())?
+            .ok_or_else(|| ExtractError::new(String::from("base url cannot be none or nil")))?
+            .to_string();
+        let headers = extract_single_line_list_field_value(inputs.get(1).unwrap())?
+            .ok_or_else(|| ExtractError::new(String::from("headers cannot be none or nil")))?;
+        let header_pairs = headers
+            .chunks(2)
+            .map(|chunk| (chunk[0].to_owned(), chunk[1].to_owned()))
+            .collect();
+        let remaining = inputs.into_iter().skip(2).collect();
+        Ok((base_url, header_pairs, remaining))
     }
 }
