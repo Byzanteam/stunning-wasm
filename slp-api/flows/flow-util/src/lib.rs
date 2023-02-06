@@ -1,4 +1,5 @@
 pub mod flow_util {
+
     use jet_programmable_rust_binding::{
         networking::{NetworkingHeaders, NetworkingResponse},
         outputs::Outputs,
@@ -109,5 +110,28 @@ pub mod flow_util {
             .collect();
         let remaining = inputs.into_iter().skip(2).collect();
         Ok((base_url, header_pairs, remaining))
+    }
+
+    pub fn extract_value(
+        value_presenter: &ValuePresenter,
+        field_name: &str,
+    ) -> Result<String, ExtractError> {
+        match value_presenter {
+            ValuePresenter::Literal(LiteralValuePresenter::NumericField(_value)) => {
+                extract_numeric_field_value(value_presenter)
+                    .and_then(|value| {
+                        value.ok_or_else(|| ExtractError::new(format!("The {field_name} of type NumericField cannot be nil or none")))
+                            .map(number_to_string_id)
+                    })
+            },
+            ValuePresenter::Literal(LiteralValuePresenter::SingleLineField(_value)) => {
+                extract_single_line_field_value(value_presenter)
+                    .and_then(|value| {
+                        value.ok_or_else(|| ExtractError::new(format!("The {field_name} of type SingleLineField cannot be nil or none")))
+                            .map(|x| x.to_string())
+                    })
+            },
+            _ => Err(ExtractError::new(format!("The value_presenter for `${field_name}` must be one of NumericField and SingleLineField, but got {value_presenter:?}")))
+        }
     }
 }
