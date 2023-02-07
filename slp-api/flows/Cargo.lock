@@ -17,6 +17,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "get-flow-all-moments"
+version = "0.1.0"
+dependencies = [
+ "flow-util",
+ "jet_programmable_rust_binding",
+]
+
+[[package]]
 name = "get-flow-details"
 version = "0.1.0"
 dependencies = [
