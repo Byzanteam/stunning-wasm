@@ -2,5 +2,6 @@
 
 members = [
     "echo",
-    "flow-util"
+    "flow-util",
+    "get-flow-details"
 ]
