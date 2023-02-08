@@ -1,0 +1,13 @@
+[package]
+name = "get-flow-assignments"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+flow-util = { path = "../flow-util" }
+
+[dependencies.jet_programmable_rust_binding]
+git = "https://github.com/Byzanteam/jet-programmable-rust-binding"
+features = ["networking"]
