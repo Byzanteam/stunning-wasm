@@ -7,5 +7,6 @@ members = [
     "get-flow-task-list",
     "get-flow-single-record",
     "get-flow-all-moments",
-    "get-flow-all-vertices"
+    "get-flow-all-vertices",
+    "create-flow-task"
 ]
