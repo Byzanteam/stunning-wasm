@@ -2,5 +2,10 @@
 
 members = [
     "echo",
-    "flow-util"
+    "flow-util",
+    "get-flow-details",
+    "get-flow-task-list",
+    "get-flow-single-record",
+    "get-flow-all-moments",
+    "get-flow-all-vertices"
 ]
