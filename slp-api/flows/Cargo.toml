@@ -12,5 +12,6 @@ members = [
     "initiate-flow-task",
     "get-flow-assignments",
     "audit-flow",
-    "get-flow-records"
+    "get-flow-records",
+    "get-user-initiated-flow"
 ]

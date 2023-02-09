@@ -89,6 +89,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "get-user-initiated-flow"
+version = "0.1.0"
+dependencies = [
+ "flow-util",
+ "jet_programmable_rust_binding",
+]
+
+[[package]]
 name = "initiate-flow-task"
 version = "0.1.0"
 dependencies = [
