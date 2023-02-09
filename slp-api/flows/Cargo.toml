@@ -10,5 +10,6 @@ members = [
     "get-flow-all-vertices",
     "create-flow-task",
     "initiate-flow-task",
-    "get-flow-assignments"
+    "get-flow-assignments",
+    "audit-flow"
 ]
