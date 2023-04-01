@@ -5,6 +5,7 @@ members = [
     # sample
     "networking-sample",
     # modules
+    "placeholder",
     "next-day-of-week",
     "integer-sum",
     "departments-iterator",
