@@ -1,0 +1,11 @@
+[workspace]
+
+members = [
+    "echo",
+    "flow_util",
+    "get_flow_details",
+    "get_flow_task_list",
+    "get_flow_single_record",
+    "get_flow_all_moments",
+    "get_flow_all_vertices"
+]

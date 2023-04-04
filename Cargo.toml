@@ -3,16 +3,16 @@
 members = [
     "echo", # for testing
     # sample
-    "networking-sample",
+    "networking_sample",
     # modules
     "placeholder",
-    "next-day-of-week",
-    "integer-sum",
-    "departments-iterator",
-    "get-naive-datetime-period-text",
-    "naive-datetime-add",
-    "get-naive-datetime-period-range",
-    "list-at",
-    "table-row-field-value-to-cascader-field-value",
-    "table-row-field-value-to-relation-field-value"
+    "next_day_of_week",
+    "integer_sum",
+    "departments_iterator",
+    "get_naive_datetime_period_text",
+    "naive_datetime_add",
+    "get_naive_datetime_period_range",
+    "list_at",
+    "table_row_field_value_to_cascader_field_value",
+    "table_row_field_value_to_relation_field_value"
 ]

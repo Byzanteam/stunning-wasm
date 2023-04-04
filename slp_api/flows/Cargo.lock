@@ -3,13 +3,6 @@
 version = 3
 
 [[package]]
-name = "departments_iterator"
-version = "0.1.0"
-dependencies = [
- "jet_programmable_rust_binding",
-]
-
-[[package]]
 name = "echo"
 version = "0.1.0"
 dependencies = [
@@ -17,24 +10,49 @@ dependencies = [
 ]
 
 [[package]]
-name = "get_naive_datetime_period_range"
-version = "0.1.0"
-dependencies = [
- "jet_programmable_rust_binding",
- "time",
-]
-
-[[package]]
-name = "get_naive_datetime_period_text"
+name = "flow_util"
 version = "0.1.0"
 dependencies = [
  "jet_programmable_rust_binding",
 ]
 
 [[package]]
-name = "integer_sum"
+name = "get_flow_all_moments"
 version = "0.1.0"
 dependencies = [
+ "flow_util",
+ "jet_programmable_rust_binding",
+]
+
+[[package]]
+name = "get_flow_all_vertices"
+version = "0.1.0"
+dependencies = [
+ "flow_util",
+ "jet_programmable_rust_binding",
+]
+
+[[package]]
+name = "get_flow_details"
+version = "0.1.0"
+dependencies = [
+ "flow_util",
+ "jet_programmable_rust_binding",
+]
+
+[[package]]
+name = "get_flow_single_record"
+version = "0.1.0"
+dependencies = [
+ "flow_util",
+ "jet_programmable_rust_binding",
+]
+
+[[package]]
+name = "get_flow_task_list"
+version = "0.1.0"
+dependencies = [
+ "flow_util",
  "jet_programmable_rust_binding",
 ]
 
@@ -53,45 +71,6 @@ dependencies = [
  "serde_json",
  "time",
  "uuid",
-]
-
-[[package]]
-name = "list_at"
-version = "0.1.0"
-dependencies = [
- "jet_programmable_rust_binding",
- "serde_json",
-]
-
-[[package]]
-name = "naive_datetime_add"
-version = "0.1.0"
-dependencies = [
- "jet_programmable_rust_binding",
- "time",
-]
-
-[[package]]
-name = "networking_sample"
-version = "0.1.0"
-dependencies = [
- "jet_programmable_rust_binding",
- "serde_json",
-]
-
-[[package]]
-name = "next_day_of_week"
-version = "0.1.0"
-dependencies = [
- "jet_programmable_rust_binding",
- "time",
-]
-
-[[package]]
-name = "placeholder"
-version = "0.1.0"
-dependencies = [
- "jet_programmable_rust_binding",
 ]
 
 [[package]]
@@ -158,20 +137,6 @@ dependencies = [
  "proc-macro2",
  "quote",
  "unicode-ident",
-]
-
-[[package]]
-name = "table_row_field_value_to_cascader_field_value"
-version = "0.1.0"
-dependencies = [
- "jet_programmable_rust_binding",
-]
-
-[[package]]
-name = "table_row_field_value_to_relation_field_value"
-version = "0.1.0"
-dependencies = [
- "jet_programmable_rust_binding",
 ]
 
 [[package]]
